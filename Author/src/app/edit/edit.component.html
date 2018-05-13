@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <a href="#" routerLink= "/">Home</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5 class="purps">Add a new author:</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="author" class="col-sm-7 border border-secondary" style="padding: 20px 10px">
+      <form class="col-sm-10" (submit)="updateAuthor(author._id)" >
+        <h6 class="text-danger" *ngIf="author.name.length < 3">Name must be at least 3 characters</h6>
+        <h5>Name:</h5>
+        <input class="form-control" type="text" name="author.name" [(ngModel)]="author.name" value={{author.name}}><br>
+        <button class="btn btn-lg btn-dark float-left" routerLink="/">Cancel</button>
+        <button class="btn btn-lg btn-warning float-right" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

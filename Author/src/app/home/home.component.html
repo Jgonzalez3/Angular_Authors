@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <a href="#" routerLink= "/new">Add an Author</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5 class="purps">We have quotes by:</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover table-bordered tbale-striped">
+        <thead>
+          <th>Author</th>
+          <th>Actions Available</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of authors">
+            <td class="purps">{{a.name}}</td>
+            <td><button class=" col-4 btn btn-warning float-left" routerLink = "/edit/{{a._id}}">Edit</button><button class="col-4 btn btn-danger float-right" (click)="deleteAuthor(a._id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
