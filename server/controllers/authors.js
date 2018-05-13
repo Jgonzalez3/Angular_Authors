@@ -9,13 +9,13 @@ module.exports = ()=>{
         author: (req, res)=>{
             var authId = req.params.id
             Author.findById(authId, (err, author)=>{
-                err=err ? console.log("ERROR THIS Author", err) & res.json({message: "Author ERROR"}): res.json({message: "Success", author:author});
+                err=err ? console.log("ERROR THIS Author", err) & res.json({message: "Author ERROR", error:err}): res.json({message: "Success", author:author});
             })
         },
         createAuthor: (req, res)=>{
             newAuthor = new Author({name: req.body.name});
             newAuthor.save((err)=>{
-                err =err ? console.log("Create ERROR") & res.json("CREATE ERROR", err): res.json({message: "Success"})
+                err =err ? console.log("Create ERROR") & res.json({message: "CREATE ERROR", error:err}): res.json({message: "Success"})
             })
         },
         updateAuthor: (req, res)=>{

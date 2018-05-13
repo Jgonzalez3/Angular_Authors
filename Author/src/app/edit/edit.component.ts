@@ -20,7 +20,6 @@ export class EditComponent implements OnInit {
     this._route.params.subscribe((params: Params)=> {
       this.paramId = params['id'];
       console.log(params['id']);
-      console.log(this.author)
     })
     this.getAuthorFromService(this.paramId);
   }
